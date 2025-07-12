@@ -1,0 +1,39 @@
+{
+  "name": "codealpha_ecommercestore",
+  "version": "1.0.0",
+  "description": "A simple e-commerce store for CodeAlpha internship task.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon -r dotenv/config backend/server.js",
+    "seed": "node backend/seeder.js",
+    "seed:destroy": "node backend/seeder.js -d",
+    "test:env": "node test-env.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "nodejs",
+    "express",
+    "mongodb",
+    "ejs",
+    "fullstack"
+  ],
+  "author": "JITHENDRA",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

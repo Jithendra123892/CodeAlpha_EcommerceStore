@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="page-header">
+        <h2>Our Products</h2>
+    </div>
+
+    <% if (products.length === 0) { %>
+        <p class="no-products-message">No products available at the moment. Please check back later!</p>
+    <% } else { %>
+        <div class="product-grid">
+            <% products.forEach(product => { %>
+                <div class="product-card">
+                    <img src="<%= product.imageUrl || '/images/placeholder.jpg' %>" alt="<%= product.name %>" onerror="this.src='https://via.placeholder.com/350x250/667eea/ffffff?text=No+Image'">
+                    <h3><a href="/products/<%= product._id %>"><%= product.name %></a></h3>
+                    <p><%= product.description.substring(0, 70) %>...</p>
+                    <div class="price">$<%= product.price.toFixed(2) %></div>
+                    <div class="stock">Stock: <%= product.stock %></div>
+                    <form action="/cart/add" method="POST" class="add-to-cart-form">
+                        <input type="hidden" name="productId" value="<%= product._id %>">
+                        <input type="number" name="quantity" value="1" min="1" max="<%= product.stock %>" class="quantity-input" <%= product.stock === 0 ? 'disabled' : '' %>>
+                        <button type="submit" class="btn add-to-cart-btn" <%= product.stock === 0 ? 'disabled' : '' %>>Add to Cart</button>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
